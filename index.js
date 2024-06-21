@@ -17,18 +17,7 @@ app.use(cors({
 
 app.use(express.json())
 
-//error handler middleware
-// if there is an error will return that error
-//else will return status code 500 with error message "Internal Server Error"
-app.use((err, req, res, next) => {
-    const statusCode = err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-    res.status(statusCode).json({
-      success: false,
-      statusCode,
-      message,
-    });
-  });
+
 
 //database connection
 connectDB();
