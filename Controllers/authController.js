@@ -49,8 +49,10 @@ export const registerUser = async (req, res, next) => {
       process.env.JWT_SECRET_KEY,
       { expiresIn: "1h" }
     );
+    const { password: passkey, ...rest } = userDetail._doc;
+    
     //token is send to frontend with the message
-      res.status(200).json({ message: "User Logged In Successfully",token: token });
+      res.status(200).json({ message: "User Logged In Successfully",token: token,rest: rest });
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Login Failed Internal server error" });

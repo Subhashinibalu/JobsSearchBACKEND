@@ -3,8 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './Database/config.js'
 import authRoute from './Routers/authRouter.js'
-
-
+import userRouter from './Routers/userRouter.js'
 dotenv.config()
 
 const app = express()
@@ -32,6 +31,8 @@ app.get('/',(req,res)=>{
 
 //route for registration
 app.use('/api/auth',authRoute)
+//route for user crud operations
+app.use('/api/user',userRouter)
 
 app.listen(process.env.PORT,()=>{
     console.log(`Server is running on port`)
