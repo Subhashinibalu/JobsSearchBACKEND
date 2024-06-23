@@ -17,7 +17,20 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    about:String,
+    ugdegree:String, 
+    ugcourse:String,
+    ugpercentage:String,
+    pgdegree:String, 
+    pgcourse:String,
+    pgpercentage:String,
+    firstname:String,
+    lastname:String,
+    streetaddress:String,
+    city:String,
+    region:String,
+    postalcode:String
 },
 {timestamps: true}//to know when the user is created
 );
