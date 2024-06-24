@@ -1,7 +1,7 @@
 //import
 import User from "../Models/userModel.js";
 
-
+//update user data logic
 export const updateUser = async (req, res) => {
 const token = req.params.token;
   try {
@@ -32,14 +32,14 @@ const token = req.params.token;
     const rest  = updatedUser._doc;
     res.status(200).json({ message: "User Updated Successfully",token: token,rest:rest });
   } catch (error) {
-    console.log(error);
+    
     res.status(500).json({ message: "Updation Failed Internal server error" });
     
   }
 };
 
 
-
+//deleteuser logic
 export const deleteUser = async (req, res) => {
     
     try {

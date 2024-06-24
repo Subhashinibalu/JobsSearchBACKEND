@@ -1,5 +1,4 @@
 import User from "../Models/userModel.js";
-
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
@@ -45,7 +44,7 @@ export const registerUser = async (req, res, next) => {
       }
       //jwt part token creation after signin
     const token = jwt.sign(
-      { _id: userDetail._id },
+      { _id: userDetail._id,isAdmin: userDetail.isAdmin },
       process.env.JWT_SECRET_KEY,
       { expiresIn: "1h" }
     );

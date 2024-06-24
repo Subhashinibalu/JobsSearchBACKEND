@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import connectDB from './Database/config.js'
 import authRoute from './Routers/authRouter.js'
 import userRouter from './Routers/userRouter.js'
+import jobPostRouter from './Routers/jobPostRouter.js'
 dotenv.config()
 
 const app = express()
@@ -33,6 +34,9 @@ app.get('/',(req,res)=>{
 app.use('/api/auth',authRoute)
 //route for user crud operations
 app.use('/api/user',userRouter)
+
+//route for admin crud operations
+app.use('/api/admin',jobPostRouter)
 
 app.listen(process.env.PORT,()=>{
     console.log(`Server is running on port`)
