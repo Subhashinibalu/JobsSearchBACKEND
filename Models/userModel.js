@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     about:String,
+    skills:[String],
     ugdegree:String, 
     ugcourse:String,
     ugpercentage:String,

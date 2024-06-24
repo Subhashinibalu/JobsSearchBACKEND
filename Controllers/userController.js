@@ -10,6 +10,7 @@ const token = req.params.token;
       {
         $set: {
           about: req.body.about,
+          skills: req.body.skills,
           ugdegree: req.body.ugdegree,
           ugcourse: req.body.ugcourse,
           ugpercentage: req.body.ugpercentage,
