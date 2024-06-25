@@ -10,19 +10,21 @@ const token = req.params.token;
       {
         $set: {
           about: req.body.about,
-          skills: req.body.skills,
           ugdegree: req.body.ugdegree,
           ugcourse: req.body.ugcourse,
           ugpercentage: req.body.ugpercentage,
           pgdegree: req.body.pgdegree,
           pgcourse: req.body.pgcourse,
           pgpercentage: req.body.pgpercentage,
+          skills: req.body.skills,
+          expectingSalary: req.body.expectingSalary,
           firstname:req.body.firstname,
           lastname:req.body.lastname,
           streetaddress:req.body.streetaddress,
           city:req.body.city,
           region:req.body.region,
-          postalcode:req.body.postalcode
+          postalcode:req.body.postalcode,
+
           
         },
       },

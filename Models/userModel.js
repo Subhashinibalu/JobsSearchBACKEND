@@ -23,19 +23,21 @@ const userSchema = new mongoose.Schema({
         default: false,
       },
     about:String,
-    skills:[String],
     ugdegree:String, 
     ugcourse:String,
     ugpercentage:String,
     pgdegree:String, 
     pgcourse:String,
     pgpercentage:String,
+    skills:[String],
+    expectingSalary:String,
     firstname:String,
     lastname:String,
     streetaddress:String,
     city:String,
     region:String,
-    postalcode:String
+    postalcode:String,
+    
 },
 {timestamps: true}//to know when the user is created
 );

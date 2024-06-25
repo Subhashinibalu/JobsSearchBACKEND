@@ -9,7 +9,7 @@ const jobPostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    skills:[String],
+    skillsRequired:[String],
     location: {
         type: String,
         required: true
@@ -18,10 +18,14 @@ const jobPostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    link: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
-    }
+    },
 },{timestamps: true})
 
 
