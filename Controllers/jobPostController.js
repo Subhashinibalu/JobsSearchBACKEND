@@ -133,6 +133,8 @@ const javascript = ele.skillsRequired.includes("JavaScript");
   }
 
 })
+
+
   res.status(200).json(newjobs)
   } catch (error) {
     res

@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+
+
 //user schema 
 
 const userSchema = new mongoose.Schema({
@@ -37,6 +39,9 @@ const userSchema = new mongoose.Schema({
     city:String,
     region:String,
     postalcode:String,
+    applications:[String],
+    
+    token:String,
     
 },
 {timestamps: true}//to know when the user is created

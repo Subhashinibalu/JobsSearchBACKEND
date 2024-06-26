@@ -1,5 +1,6 @@
 //import
 import User from "../Models/userModel.js";
+import jobPost from "../Models/jobPostModel.js";
 
 //update user data logic
 export const updateUser = async (req, res) => {
@@ -52,3 +53,28 @@ export const deleteUser = async (req, res) => {
         res.status(500).json( {message:'Internal Servor error'} );
     }
   };
+
+
+
+  //jobs applied
+
+  export const userApplication = async (req, res) => {
+    try {
+      
+      const updatedUser = await User.updateOne({token:req.params.token},
+        { $push:
+          {
+         applications:req.params.id
+          }
+       }
+
+      )
+
+      const rest  = await User.findOne({token:req.params.token})
+      console.log(rest);
+      res.status(200).json({ message: "User Updated Successfully",rest:rest });
+
+    } catch (error) {
+      res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+  }

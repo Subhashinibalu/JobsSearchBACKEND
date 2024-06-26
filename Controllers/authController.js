@@ -48,6 +48,9 @@ export const registerUser = async (req, res, next) => {
       process.env.JWT_SECRET_KEY,
       { expiresIn: "1h" }
     );
+    userDetail.token = token;
+    await userDetail.save();
+
     const { password: passkey, ...rest } = userDetail._doc;
     
     //token is send to frontend with the message
@@ -71,6 +74,7 @@ export const registerUser = async (req, res, next) => {
     }
     //creating a new token for the user
     const token = jwt.sign({_id:user._id},process.env.JWT_SECRET_KEY,{expiresIn:"1d"})
+
 
     //creating a nodemailer transporter for sending email
     var transporter = nodemailer.createTransport({
