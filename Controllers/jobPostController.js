@@ -47,7 +47,7 @@ export const postJob = async (req, res) => {
       const userjava = user.skills.includes("Java");
       const userc = user.skills.includes("C++");
       const userpython = user.skills.includes("Python");
-
+c
       if (
         (userhtml && html) == true ||
         (usercss && css) == true ||
@@ -93,9 +93,47 @@ export const postJob = async (req, res) => {
 export const getAllJobs = async (req, res) => {
   try {
     const jobs = await jobPost.find();
-    console.log(jobs);
+    
+const user = await User.findById(req.params.id);
+//to get job recommendation based on the user skills
+const userhtml = user.skills.includes("HTML");
+const usercss = user.skills.includes("CSS");
+const userjavascript = user.skills.includes("JavaScript");
+const usermongodb = user.skills.includes("MongoDB");
+const usermysql = user.skills.includes("MySQL");
+const userds = user.skills.includes("DataStructure");
+const userjava = user.skills.includes("Java");
+const userc = user.skills.includes("C++");
+const userpython = user.skills.includes("Python");
 
-    res.status(200).json(jobs);
+
+const newjobs = jobs.filter((ele)=>{
+
+const html = ele.skillsRequired.includes("HTML");
+  const css = ele.skillsRequired.includes("CSS"); 
+const javascript = ele.skillsRequired.includes("JavaScript");
+  const mongodb = ele.skillsRequired.includes("MongoDB");
+  const mysql = ele.skillsRequired.includes("MySQL");
+  const ds = ele.skillsRequired.includes("DataStructure");
+  const java = ele.skillsRequired.includes("Java");
+  const python = ele.skillsRequired.includes("Python");
+  const c = ele.skillsRequired.includes("C++");
+  if (
+    (userhtml && html) == true ||
+    (usercss && css) == true ||
+    (userjavascript && javascript) == true ||
+    (usermongodb && mongodb) == true ||
+    (usermysql && mysql) == true ||
+    (userds && ds) == true ||
+    (userjava && java) == true ||
+    (userc && c) == true ||
+    (userpython && python) == true
+  ){
+    return ele;
+  }
+
+})
+  res.status(200).json(newjobs)
   } catch (error) {
     res
       .status(500)
