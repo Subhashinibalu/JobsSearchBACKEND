@@ -147,9 +147,13 @@ const javascript = ele.skillsRequired.includes("JavaScript");
 export const getSearch=async(req,res) => {
   try {
     const jobs = await jobPost.find()
-    res.status(200).json(jobs)
+    const {query}  = req.query
+    //filtering jobs based on company name, job role and location
+   const search= jobs.filter((job) =>(job.company.toLowerCase().includes(query.toLowerCase())||
+job.role.toLowerCase().includes(query.toLowerCase())||job.location.toLowerCase().includes(query.toLowerCase())||job.salary.toLowerCase().includes(query.toLowerCase())))
+    res.status(200).json(search)
 
   } catch (error) {
-    res.status(500).json({error});
+    res.status(500).json({message:"No results found",error});
   }
 }
