@@ -6,6 +6,7 @@ import jobPost from "../Models/jobPostModel.js";
 export const updateUser = async (req, res) => {
 const token = req.params.token;
   try {
+    //updating the values of the user
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
       {
@@ -57,10 +58,9 @@ export const deleteUser = async (req, res) => {
 
 
   //jobs applied
-
   export const userApplication = async (req, res) => {
     try {
-      
+      //job id is pushed to user application if the user applied for the job
       const updatedUser = await User.updateOne({token:req.params.token},
         { $push:
           {
@@ -71,7 +71,7 @@ export const deleteUser = async (req, res) => {
       )
 
       const rest  = await User.findOne({token:req.params.token})
-      console.log(rest);
+      
       res.status(200).json({ message: "User Updated Successfully",rest:rest });
 
     } catch (error) {
@@ -80,5 +80,5 @@ export const deleteUser = async (req, res) => {
   }
 
 
-  //jobsearch
+
   

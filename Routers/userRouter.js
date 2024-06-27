@@ -5,5 +5,5 @@ const userRouter = express.Router();
 
 userRouter.delete('/delete/:id',deleteUser)//route to delete user account
 userRouter.put('/update/:id/:token',verifyToken,updateUser)//to update user details
-userRouter.put('/application/:id/:token',userApplication)
+userRouter.put('/application/:id/:token',userApplication)//to maintain job applications
 export default userRouter;

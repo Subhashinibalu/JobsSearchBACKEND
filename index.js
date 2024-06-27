@@ -39,5 +39,5 @@ app.use('/api/user',userRouter)
 app.use('/api/admin',jobPostRouter)
 
 app.listen(process.env.PORT,()=>{
-    console.log(`Server is running on port`)
+    console.log(`Server is running `)
 })

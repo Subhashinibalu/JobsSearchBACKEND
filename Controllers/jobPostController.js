@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
 
-//job posting logic
+//posting job 
 export const postJob = async (req, res) => {
   const { company, role, skillsRequired, location, salary, link, email } =
     req.body;
@@ -75,8 +75,9 @@ c
           to: user.email,
           subject: "New Job Posted",
           text: `Hello ${user.username}!
-                    We have come up with new job. That ${postedJob.company} has posted a new job for the role of ${postedJob.role}. We find your skills match this role.To know more about the job check your JobSearch App Job recommendations or you can visit the company's website.
-                    Grab the opportunity!`,
+                    We have come up with a new job. ${postedJob.company} has posted a job for the role of ${postedJob.role}. We find your skills match this role.To know more about the job check your JobSearch App Job recommendations or you can visit the company's website.
+                      
+                          Grab the opportunity!`,
           //sending the mail to the users with matching skills
         };
         //sending the mail using the nodemailer transporter
