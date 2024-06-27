@@ -142,3 +142,14 @@ const javascript = ele.skillsRequired.includes("JavaScript");
       .json({ message: "Internal Server Error", error: error.message });
   }
 };
+
+//to get jobs based on search
+export const getSearch=async(req,res) => {
+  try {
+    const jobs = await jobPost.find()
+    res.status(200).json(jobs)
+
+  } catch (error) {
+    res.status(500).json({error});
+  }
+}
