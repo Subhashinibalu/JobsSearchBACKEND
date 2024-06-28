@@ -72,7 +72,7 @@ export const deleteUser = async (req, res) => {
 
       const rest  = await User.findOne({token:req.params.token})
       
-      res.status(200).json({ message: "User Updated Successfully",rest:rest });
+      res.status(200).json({ message: "User application added Successfully",rest:rest });
 
     } catch (error) {
       res.status(500).json({ message: "Internal Server Error", error: error.message });
