@@ -96,7 +96,7 @@ export const forgotPassword = async (req, res) => {
     text:
       "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
       "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-      `https://jobssearchbackend.onrender.com/resetpassword/${user._id}/${token}`,
+      `https://jobssearchbackend.onrender.com/api/auth/reset-password/${user._id}/${token}`,
     //sending the mail with reset password link along with newly created token and user id
   };
   //sending the mail using the nodemailer transporter
